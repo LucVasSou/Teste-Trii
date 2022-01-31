@@ -1,49 +1,81 @@
+const nome = document.getElementById('name')
+const email = document.getElementById('email')
+const orcamento = document.getElementById('tipoOrcamento')
+const texto = document.getElementById('textArea')
+const tel = document.getElementById('phone')
+
+tel.addEventListener('keypress', e => mascaraTelefone(e.target.value)) // Dispara quando digitado no campo
+tel.addEventListener('change', e => mascaraTelefone(e.target.value)) // Dispara quando autocompletado o campo
+
+const mascaraTelefone = valor => {
+  valor = valor.replace(/\D/g, '')
+  valor = valor.replace(/^(\d{2})(\d)/g, '($1) $2')
+  valor = valor.replace(/(\d)(\d{4})$/, '$1-$2')
+  tel.value = valor // Insere o(s) valor(es) no campo
+}
+
 const button = document.getElementById('button')
 
-button.addEventListener('click', event => {
-  event.preventDefault()
+function verifyTel() {
+  if (tel.value == '') {
+    tel.parentNode.children[1].classList.remove('sobeTexto')
+    tel.classList.add('errorInput')
+  } else if (tel.value.length !== 15) {
+    tel.parentNode.children[1].classList.add('sobeTexto')
+    tel.classList.add('errorInput')
+  } else {
+    tel.classList.remove('errorInput')
+  }
+}
 
-  const nome = document.getElementById('name')
-  const email = document.getElementById('email')
-  const telefone = document.getElementById('phone')
-  const orcamento = document.getElementById('tipoOrcamento')
-  const texto = document.getElementById('textArea')
+function verifyEmail() {
+  if (email.value == '') {
+    email.parentNode.children[1].classList.remove('sobeTexto')
+    email.classList.add('errorInput')
+  } else if (
+    email.value.indexOf('@') == -1 ||
+    email.value.indexOf('.') == -1 ||
+    email.value.indexOf('.') - email.value.indexOf('@') == 1
+  ) {
+    email.parentNode.children[1].classList.add('sobeTexto')
+    email.classList.add('errorInput')
+  } else {
+    email.classList.remove('errorInput')
+  }
+}
 
+function verifyNome() {
   if (nome.value == '') {
     nome.classList.add('errorInput')
   } else {
     nome.classList.remove('errorInput')
   }
+}
 
-  if (
-    email.value == '' ||
-    email.value.indexOf('@') == -1 ||
-    email.value.indexOf('.') == -1 ||
-    email.value.indexOf('.') - email.value.indexOf('@') == 1
-  ) {
-    email.classList.add('errorInput')
-  } else {
-    email.classList.remove('errorInput')
-  }
-
-  if (telefone.value == '' || telefone.value.length !== 11) {
-    telefone.classList.add('errorInput')
-  } else {
-    telefone.classList.remove('errorInput')
-  }
-
+function verifyOrc() {
   if (orcamento.value == '') {
     orcamento.classList.add('errorInput')
   } else {
     orcamento.classList.remove('errorInput')
   }
+}
 
+function verifyMsg() {
   if (texto.value == '') {
     texto.classList.add('errorInput')
   } else {
     texto.classList.remove('errorInput')
   }
+}
 
+button.addEventListener('click', event => {
+  event.preventDefault()
+
+  verifyNome()
+  verifyEmail()
+  verifyTel()
+  verifyOrc()
+  verifyMsg()
   // alert de mensagem de erro
 
   if (

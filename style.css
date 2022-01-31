@@ -8,7 +8,7 @@ a {
   text-decoration: none;
 }
 
-body{
+body {
   background-color: #9ddeff;
   display: flex;
   justify-items: center;
@@ -18,256 +18,258 @@ body{
 
 .container {
   width: 100vw;
-  height: 100vh; 
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Roboto', sans-serif;
-  }
+  font-family: "Roboto", sans-serif;
+}
+
+.box {
+  padding: 20px 20px 50px 20px;
+  width: 100%;
+  max-width: 45rem;
+  height: auto;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 6px 6px 15px #888;
+  border-radius: 0.25rem;
+}
+
+.box h2 {
+  padding-top: 2rem;
+  color: #5a595a;
+}
+
+.form {
+  width: 100%;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.campos_menores {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.inputUser:nth-child(1n) {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.inputUser:nth-child(2n) {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 1rem;
+}
+
+.inputUser {
+  position: relative;
+  width: 50%;
+  margin-bottom: 1.3rem;
+}
+
+.texto {
+  position: relative;
+  width: 100%;
+
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.inputUser input {
+  width: 90%;
+  height: 2.5rem;
+  outline: none;
+  border-radius: 0.25rem;
+  border: 1px solid #ccc;
+  padding-left: 1rem;
+}
+
+.inputUser select {
+  width: 90%;
+  height: 2.5rem;
+  outline: none;
+  border-radius: 0.25rem;
+  border: 1px solid #ccc;
+}
+
+.text_area {
+  height: 7rem;
+  width: 90.2%;
+  margin: 0 !important;
+  outline: none;
+  resize: none;
+  border: 1px solid #ccc;
+  padding-top: 1.5rem;
+  padding-left: 1rem;
+  border-radius: 0.25rem;
+}
+
+.button {
+  width: 95%;
+  float: right;
+  display: flex;
+  justify-content: right;
+  margin-right: 1rem;
+}
+
+.button button {
+  background: #0175c0;
+  color: #fff;
+  width: 7rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  box-shadow: 6px 6px 15px #888;
+  cursor: pointer;
+}
+
+.inputUser span,
+.texto span {
+  position: absolute;
+  left: 36px;
+  top: 12px;
+  padding-left: 1rem;
+  pointer-events: none;
+  transition: 0.5s;
+  opacity: 0.5;
+}
+
+.texto span {
+  margin: 1rem;
+  top: 2px;
+  left: 20px;
+}
+
+.inputUser:nth-child(2n) span {
+  left: 20px;
+}
+
+.sobeTexto {
+  transform: translateY(-10px);
+  font-size: 10px;
+  opacity: 1;
+  color: rgb(207, 64, 64);
+}
+
+.inputUser input:focus ~ span,
+.inputUser select:focus ~ span,
+.texto textarea:focus ~ span,
+.inputUser input:valid ~ span,
+.inputUser select:valid ~ span,
+.texto textarea:valid ~ span {
+  transform: translateY(-10px);
+  font-size: 10px;
+  opacity: 1;
+}
+
+.inputUser input:valid ~ span,
+.inputUser select:valid ~ span,
+.texto textarea:valid ~ span {
+  color: #259b3e;
+}
+
+.inputUser input:valid,
+.inputUser select:valid,
+.texto textarea:valid {
+  border: 1px solid #259b3e;
+}
+
+.inputUser input:focus ~ span,
+.inputUser select:focus ~ span,
+.texto textarea:focus ~ span {
+  color: #9ddeff;
+}
+
+.inputUser input:focus,
+.inputUser select:focus,
+.texto textarea:focus {
+  border: 1px solid #9ddeff;
+}
+
+.inputUser input:valid ~ span::before,
+.inputUser select:valid ~ span::before,
+.texto textarea:valid ~ span::before
+{
+ display: block;
   
-  .box {
-    padding: 20px 20px 50px 20px;
+}
+
+.name span::before, .phone span::before, .textArea span::before{
+  width: 265px;
+  display: none;
+  content: "Campo preenchido corretamente";
+  color: #259b3e;
+  position: absolute;
+  top: -18px;
+  left: 0px;
+}
+.textArea span::before{
+  top: -23px;
+}
+
+.email span::before, .tipoOrcamento span::before{
+  width: 265px;
+  display: none;
+  content: "Campo preenchido corretamente";
+  color: #259b3e;
+  position: absolute;
+  top: -18px;
+  left: 0px;
+}
+
+.errorInput {
+  border: 2px solid rgb(207, 64, 64) !important;
+}
+
+@media only screen and (max-width: 425px) {
+  .inputUser {
+    display: flex;
     width: 100%;
-    max-width: 45rem;
-    height: auto;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 6px 6px 15px #888;
-    border-radius: 0.25rem;
-    
-  }
-
-  .box h2 {
-    padding-top: 2rem;
-    color: #5a595a;
-  }
-
-  .form {
-    width: 100%;
-    margin-top: 1.5rem ;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .campos_menores{
-    display: flex;
-    flex-wrap: wrap;
     justify-content: center;
   }
 
-  .inputUser:nth-child(1n){
-    display: flex;
-    justify-content: flex-end;
-    
-  }
-
-  .inputUser:nth-child(2n){
+  .inputUser:nth-child(2n) {
     display: flex;
     justify-content: flex-start;
-    padding-left: 1rem;
+    padding-left: 0;
   }
 
-  .inputUser {
-    position: relative;
-    width: 50%;
-    margin-bottom: 1rem;
-  }
-
-  .texto {
-    position: relative;
-    width: 100%;
-    
-    margin-bottom: 1.5rem;
-    display: flex;
-    justify-content: center;
-  }
-  
-
-  .inputUser input{
-    width: 90%;
-    height: 2.5rem;
-    outline: none;
-    border-radius: 0.25rem;
-    border: 1px solid #ccc;
-    padding-left: 1rem;
-  }
-
-
-  .inputUser select{
-    width: 90%;
-    height: 2.5rem;
-    outline: none;
-    border-radius: 0.25rem;
-    border: 1px solid #ccc;
-  }
-
-  
-
-  .text_area {
-    height: 7rem;
-    width: 90.2%;
-    margin: 0 !important;
-    outline: none;
-    resize: none;
-    border: 1px solid #ccc;
-    padding-top: 1.5rem;
-    padding-left: 1rem;
-    border-radius: 0.25rem;
-    
-  }
-  
-
-  .button {
-    width: 95%;
-    float: right;
-    display: flex;
-    justify-content: right;
-    margin-right: 1rem;
-    
-  }
-
-  .button button {
-    background: #0175c0;
-    color:#fff;
-    width: 7rem;
-    height: 2.5rem;
-    border: none;
-    border-radius: 0.25rem;
-    box-shadow: 6px 6px 15px #888;;
-    cursor: pointer;
+  .inputUser:nth-child(1n) {
+    padding-right: 0;
   }
 
   .inputUser span,
-  .texto span 
-  {
-    position: absolute;
-    left: 36px;
-    top: 12px;
-    padding-left: 1rem;
-    pointer-events: none;
-    transition: 0.5s;
-    opacity: .5;
+  .inputUser:nth-child(2n) span {
+    left: 10px;
+  }
+  .inputUser input,
+  .inputUser select {
+    width: 100%;
   }
 
-  .texto span { 
-    margin:  1rem;
-    top: 2px;
-    left: 20px;
+  .texto span {
+    margin: 0;
+    left: 10px;
+    top: 10px;
   }
 
-  .inputUser:nth-child(2n) span{
-    left: 20px;
-  }
-  
-
-  .inputUser input:focus ~ span,
-  .inputUser select:focus ~ span,
-  .texto textarea:focus ~ span,
-  .inputUser input:valid ~ span,
-  .inputUser select:valid ~ span,
-  .texto textarea:valid ~ span
-  {
-    
-    transform: translateY(-10px);
-    font-size: 10px;
-    opacity: 1;
-    
+  .text_area {
+    width: 100%;
   }
 
-  
-
-  .inputUser input:valid ~ span,
-  .inputUser select:valid ~ span,
-  .texto textarea:valid ~ span
-  {
-    
-    color: #259b3e;
-    
-    
+  .box h2 {
+    text-align: center;
   }
 
-  .inputUser input:valid,
-  .inputUser select:valid,
-  .texto textarea:valid
-  {
-    border: 1px solid #259b3e;
-    
-    
+  .button {
+    width: 100%;
   }
-
-  
-
-  .inputUser input:focus ~ span,
-  .inputUser select:focus ~ span,
-  .texto textarea:focus ~ span
-  {
-    color: #9ddeff;
-    
-  }
-
-  .inputUser input:focus,
-  .inputUser select:focus,
-  .texto textarea:focus 
-  {
-
-    border: 1px solid #9ddeff;
-    
-  }
-
-  .errorInput {
-    border: 2px solid rgb(207, 64, 64) !important;
-  }
-
-  @media only screen and (max-width: 425px) {
-    
-    .inputUser
-    
-    {
-      display: flex;
-      width: 100%;
-      justify-content: center;
-    }
-
-    .inputUser:nth-child(2n){
-      display: flex;
-      justify-content: flex-start;
-      padding-left: 0;
-    }
-
-    .inputUser:nth-child(1n){
-      padding-right: 0;
-    }
-    
-
-    .inputUser span,
-    .inputUser:nth-child(2n) span
-    {
-      left: 10px;
-    }
-    .inputUser input,
-    .inputUser select
-    {
-      width: 100%;
-    }
-
-    .texto span {
-      margin: 0;
-      left: 10px;
-      top:10px;
-    }
-
-    .text_area{
-      width: 100%;
-    }
-
-    .box h2{
-      text-align: center;
-    }
-
-    .button{
-      width: 100%;
-    }
-  }
+}

@@ -23,7 +23,7 @@
         </div>
         <form class="form">
           <div class="campos_menores">
-            <div class="inputUser">
+            <div class="inputUser name">
               <input
                 class=""
                 type="text"
@@ -32,29 +32,34 @@
                 required
                 value=""
                 onkeypress="isChar(event)"
+                onblur="verifyNome()"
               />
               <span>Nome</span>
             </div>
-            <div class="inputUser">
-              <input type="email" autocomplete="off" id="email" required />
+            <div class="inputUser email">
+              <input
+                type="email"
+                autocomplete="off"
+                id="email"
+                onblur="verifyEmail()"
+                required
+              />
               <span>E-mail</span>
             </div>
-            <div class="inputUser">
+            <div class="inputUser phone inputTel">
               <input
-                type="tel"
+                maxlength="15"
+                pattern="\(\d{2}\)\s*\d{5}-\d{4}"
                 name="telefone"
-                data-mask="(00) 0000-0000"
-                data-mask-selectonfocus="true"
-                autocomplete="off"
                 id="phone"
                 required
-                pattern="[0-9]{2}[0-9]{5}[0-9]{4}"
                 onkeypress="isNumber(event)"
+                onblur="verifyTel()"
               />
               <span>Telefone</span>
             </div>
-            <div class="inputUser">
-              <select id="tipoOrcamento" required>
+            <div class="inputUser tipoOrcamento">
+              <select id="tipoOrcamento" onblur="verifyOrc()" required>
                 <option value="" disabled selected hidden></option>
                 <option value="familar">Familiar</option>
                 <option value="empresarial">Empresarial</option>
@@ -63,8 +68,13 @@
             </div>
           </div>
 
-          <div class="texto">
-            <textarea class="text_area" id="textArea" required></textarea>
+          <div class="texto textArea">
+            <textarea
+              class="text_area"
+              id="textArea"
+              onblur="verifyMsg()"
+              required
+            ></textarea>
             <span>Mensagem</span>
           </div>
 
